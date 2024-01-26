@@ -44,6 +44,7 @@ import com.linecorp.kotlinjdsl.querymodel.jpql.select.SelectQuery
 import com.linecorp.kotlinjdsl.querymodel.jpql.sort.Sort
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.time.LocalTime
 import kotlin.internal.Exact
 import kotlin.internal.LowPriorityInOverloadResolution
 import kotlin.reflect.KClass
@@ -2895,5 +2896,14 @@ open class Jpql : JpqlDsl {
     @SinceJdsl("3.0.0")
     fun <T : Any> deleteFrom(entity: Entityable<T>): DeleteQueryWhereStep<T> {
         return DeleteQueryDsl(entity.toEntity())
+    }
+
+    /**
+     * Creates a LOCAL TIME datetime function.
+     */
+    @SinceJdsl("3.0.0")
+    fun localTime(hours: Int, minutes: Int, seconds: Int): Expression<LocalTime> {
+        // TODO: add Expressions.
+        return nullLiteral()
     }
 }
