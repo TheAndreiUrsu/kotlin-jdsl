@@ -2903,6 +2903,6 @@ open class Jpql : JpqlDsl {
      */
     @SinceJdsl("3.0.0")
     fun localTime(localTime: String): Expression<LocalTime> {
-        return Expressions.localTimeLiteral(LocalTime.parse(localTime))
+        return Expressions.localTimeLiteral(localTime)
     }
 }
