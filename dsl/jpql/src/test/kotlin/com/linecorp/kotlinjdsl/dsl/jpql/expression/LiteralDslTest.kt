@@ -180,7 +180,7 @@ class LiteralDslTest : WithAssertions {
 
         // then
         val expected = Expressions.localTimeLiteral(
-            LocalTime.parse(localTime1),
+            localTime1,
         )
 
         assertThat(actual).isEqualTo(expected)
