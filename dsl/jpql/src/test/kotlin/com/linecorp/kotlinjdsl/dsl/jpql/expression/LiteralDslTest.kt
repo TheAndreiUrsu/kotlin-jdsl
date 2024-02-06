@@ -6,6 +6,7 @@ import com.linecorp.kotlinjdsl.querymodel.jpql.expression.Expression
 import com.linecorp.kotlinjdsl.querymodel.jpql.expression.Expressions
 import org.assertj.core.api.WithAssertions
 import org.junit.jupiter.api.Test
+import java.time.LocalTime
 
 class LiteralDslTest : WithAssertions {
     private val int1: Int = 1
@@ -15,6 +16,7 @@ class LiteralDslTest : WithAssertions {
     private val boolean1: Boolean = true
     private val char1: Char = 'a'
     private val string1: String = "string1"
+    private val localTime1: String = LocalTime.now().toString()
 
     @Test
     fun intLiteral() {
@@ -163,6 +165,23 @@ class LiteralDslTest : WithAssertions {
 
         // then
         val expected = Expressions.nullLiteral<Int>()
+
+        assertThat(actual).isEqualTo(expected)
+    }
+
+    @Test
+    fun localTimeLiteral() {
+        // when
+        val expression = queryPart {
+            localTime(localTime1)
+        }.toExpression()
+
+        val actual: Expression<LocalTime> = expression // for type check
+
+        // then
+        val expected = Expressions.localTimeLiteral(
+            LocalTime.parse(localTime1),
+        )
 
         assertThat(actual).isEqualTo(expected)
     }
