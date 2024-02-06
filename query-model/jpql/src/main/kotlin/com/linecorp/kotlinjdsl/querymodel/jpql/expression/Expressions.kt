@@ -44,6 +44,7 @@ import com.linecorp.kotlinjdsl.querymodel.jpql.select.SelectQuery
 import com.linecorp.kotlinjdsl.querymodel.jpql.select.impl.JpqlSelectQuery
 import java.math.BigDecimal
 import java.math.BigInteger
+import java.time.LocalTime
 import kotlin.internal.Exact
 import kotlin.reflect.KClass
 
@@ -147,6 +148,14 @@ object Expressions {
     fun <T : Any> nullLiteral(): Expression<T> {
         @Suppress("UNCHECKED_CAST")
         return JpqlLiteral.NullLiteral as Expression<T>
+    }
+
+    /**
+     * Creates a literal expression with null.
+     */
+    @SinceJdsl("3.0.0")
+    fun localTimeLiteral(localTime: LocalTime): Expression<LocalTime> {
+        return JpqlLiteral.LocalTimeLiteral(localTime)
     }
 
     /**
