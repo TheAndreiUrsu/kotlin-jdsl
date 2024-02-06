@@ -154,8 +154,8 @@ object Expressions {
      * Creates a literal expression with null.
      */
     @SinceJdsl("3.0.0")
-    fun localTimeLiteral(localTime: LocalTime): Expression<LocalTime> {
-        return JpqlLiteral.LocalTimeLiteral(localTime)
+    fun localTimeLiteral(localTime: String): Expression<LocalTime> {
+        return JpqlLiteral.LocalTimeLiteral(LocalTime.parse(localTime))
     }
 
     /**
