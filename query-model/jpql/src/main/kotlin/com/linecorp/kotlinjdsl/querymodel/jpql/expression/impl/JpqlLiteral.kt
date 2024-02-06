@@ -2,6 +2,7 @@ package com.linecorp.kotlinjdsl.querymodel.jpql.expression.impl
 
 import com.linecorp.kotlinjdsl.Internal
 import com.linecorp.kotlinjdsl.querymodel.jpql.expression.Expression
+import java.time.LocalTime
 
 /**
  * Expression that represents the literal.
@@ -59,4 +60,8 @@ sealed interface JpqlLiteral<T : Any> : Expression<T> {
     object NullLiteral : JpqlLiteral<Any> {
         override fun toString(): String = "NullLiteral"
     }
+
+    data class LocalTimeLiteral internal constructor(
+        val localTime: LocalTime,
+    ) : JpqlLiteral<LocalTime>
 }
