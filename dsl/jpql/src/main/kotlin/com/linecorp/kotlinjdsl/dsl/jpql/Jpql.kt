@@ -2899,7 +2899,9 @@ open class Jpql : JpqlDsl {
     }
 
     /**
-     * Creates a LOCAL TIME datetime function.
+     * Creates an expression that represents the local time.
+     *
+     * This is the same as ```LOCAL TIME```.
      */
     @SinceJdsl("3.0.0")
     fun localTime(localTime: String): Expression<LocalTime> {
