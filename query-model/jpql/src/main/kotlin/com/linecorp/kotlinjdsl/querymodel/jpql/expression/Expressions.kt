@@ -151,7 +151,9 @@ object Expressions {
     }
 
     /**
-     * Creates a literal expression with null.
+     * Creates a literal expression with LOCAL TIME.
+     * The input string should be in a valid format for LocalTime parsing.
+     * For example, to represent 12:34:56, use localTimeLiteral("12:34:56").
      */
     @SinceJdsl("3.0.0")
     fun localTimeLiteral(localTime: String): Expression<LocalTime> {
